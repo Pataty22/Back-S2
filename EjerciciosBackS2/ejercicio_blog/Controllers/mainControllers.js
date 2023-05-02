@@ -21,6 +21,7 @@ function art(req,res){
         .then(function (response){
             const articulos = response.data;
             const articulo = articulos.find(item=> item.id === Number(articleId));
+            console.log(articulo);
             res.render("articulo", {articulo});
         })
         .catch(error => {
