@@ -11,18 +11,18 @@
 <body>
     <div class="container">
         <h1>Modificar usuario</h1>
-        <form method="post" action="/usuarios/editar/<%=edit[0].id%>">
+        <form method="post" action="/usuarios/editar/<%=usersM[0].id%>">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="firstName" name="firstName" value="<%=edit[0].firstname%>">
+                <input type="text" class="form-control" id="firstName" name="firstName" value="<%=usersM[0].firstname%>">
             </div>
             <div class="mb-3">
                 <label for="lastName" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" value="<%=edit[0].lastname%>">
+                <input type="text" class="form-control" id="lastName" name="lastName" value="<%=usersM[0].lastname%>">
             </div>
             <div class="mb-3">
                 <label for="age" class="form-label">Edad</label>
-                <input type="text" class="form-control" id="age" name="age" value="<%=edit[0].age%>">
+                <input type="text" class="form-control" id="age" name="age" value="<%=usersM[0].age%>">
             </div>
             <div>
                 <button class="btn btn-success" type="submit">Modificar</button>

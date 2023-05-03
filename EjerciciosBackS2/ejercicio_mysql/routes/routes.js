@@ -9,9 +9,9 @@ routes.get("/usuarios/crear", mainController.addUsers);
 
 routes.get("/usuarios/editar/:id", mainController.modifyUsers );
 
-routes.post("/usuarios", mainController.modifyUsers1);
+routes.post("/usuarios", mainController.createUsers);
 
-routes.post("/usuarios/editar/:id", mainController.modifyUsers2);
+routes.post("/usuarios/editar/:id", mainController.modifyUsers1);
 
 routes.get("/usuarios/eliminar/:id", mainController.userDelete);
 
