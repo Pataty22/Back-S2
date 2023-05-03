@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>Modificar usuario</h1>
-        <form method="post" action="/usuarios/editar/(id)">
+        <form method="post" action="/usuarios/editar/<%=edit[0].id%>">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" value="<%=edit[0].firstname%>">
@@ -25,7 +25,7 @@
                 <input type="text" class="form-control" id="age" name="age" value="<%=edit[0].age%>">
             </div>
             <div>
-                <button class="btn btn-success" type="button">Modificar</button>
+                <button class="btn btn-success" type="submit">Modificar</button>
             </div>
         </form>    
         <a href="/usuarios">Volver</a>

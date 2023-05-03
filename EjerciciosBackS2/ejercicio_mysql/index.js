@@ -60,15 +60,9 @@ app.post("/usuarios", async function modifyUsers(req,res){
    res.redirect("http://localhost:3000/usuarios");
         
 });
-    /*const connection   = await mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password:"50137667",
-    database:"ha_ejercio_20",});
+    
 
-    return res.render("crear");*/
-
-app.post("/usuarios/editar/:id", async function modifyUsers(req,res){
+app.post("/usuarios/editar/:id", async function modifyUsers1(req,res){
     const connection = await mysql.createConnection({
     host:"localhost",
     user:"root",
@@ -76,19 +70,22 @@ app.post("/usuarios/editar/:id", async function modifyUsers(req,res){
     database:"ha_ejercio_20",});
     
 
-    //await connection.execute(`UPDATE 'ha_ejercio_20' SET firstname = ${}, lastname = ${} , age = ${} WEHERE id = ${req.params.id}`)
-    return res.redirect("modificar");
+    await connection.execute(`UPDATE users SET firstname = '${req.body.firstName}', lastname = '${req.body.lastName}' , age = ${req.body.age} WHERE id = ${req.params.id}`)
+    return res.redirect("http://localhost:3000/usuarios");
 
 });
 
-app.get("/usuarios/eliminar/:id", async function modifyUsers(req,res){
+app.get("/usuarios/eliminar/:id", async function userDelete(req,res){
     const connection = await mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"50137667",
     database:"ha_ejercio_20",});
 
-    return res.render("usuarios");
+
+     await connection.execute('DELETE FROM users WHERE id = ?', [req.params.id]);
+
+    return res.redirect("http://localhost:3000/usuarios");
 
 });
 
