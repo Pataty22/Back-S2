@@ -1,7 +1,11 @@
 const User = require("../models/User");
 
 // Display a listing of the resource.
-async function index(req, res) {}
+async function index(req, res) {
+  const users = await User.find();
+
+  return res.render("users/showAll", { users });
+}
 
 // Display the specified resource.
 async function show(req, res) {}
@@ -9,8 +13,18 @@ async function show(req, res) {}
 // Show the form for creating a new resource
 async function create(req, res) {}
 
-// Store a newly created resource in storage.
-async function store(req, res) {}
+// guarda el usuario creado-
+async function store(req, res) {
+  const newUser = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: req.body.age,
+  };
+
+  await newUser.save();
+
+  return res.redirect("/usuarios");
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}
